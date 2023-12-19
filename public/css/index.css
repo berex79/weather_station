@@ -1,0 +1,76 @@
+body {
+    font-family: 'Roboto', sans-serif; 
+}
+
+img {width:40%;
+    display: block; /* Makes the image a block element */
+    margin: 0 auto; /* Auto margin on both sides to center it */
+    max-width: 100%; /* Optional, ensures image doesn't overflow its container */
+    height: auto; /* Keeps the aspect ratio of the image */
+    }
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.iframe-panel, .data-panel {
+    width: 20%;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #ccc;
+    height: 330px; /* Adjust as needed */
+}
+
+iframe {
+    width: 60%;
+    height: 100%;
+    border: none;
+}
+
+.reset-button, .reset-button2 {
+    display: block;
+    width: 100px;
+    padding: 5px 10px;
+    margin: 10px 0;
+    background: #0000ff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #0000ff;
+    cursor: pointer;
+}
+
+.chart-container {
+    width: 30%;
+    height: 330px;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.weather-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.weather-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 200px;
+    background-color: blue;
+    color: white;
+}
+
+.weather-card h3 {
+    margin-top: 0;
+}
+
