@@ -18,6 +18,8 @@ var app = express();
 var server = http.createServer(app);
 var timeStamp = Math.floor(Date.now() / 1000);
 
+var port = process.env.PORT || 3000;
+
 const {  promiseToString, writeFirebase, getIndoorData, getOutdoorData } = require('./js/helper');
 const { fetchAndParseWeatherForecast, getCurrentDayWeather, getThreeDayForecast, getTodayForecastData, get3DayForecastData, getWeekForecastData } = require('./js/forecast');
 const { runCron } = require('./js/cron');
@@ -34,7 +36,7 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname+'/index.html'));
 });
 
-app.listen(3000, function(err){
+app.listen(port, function(err){
   if(err){
     console.log('Error starting http server');
   } else {
