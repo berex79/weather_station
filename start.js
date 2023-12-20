@@ -100,8 +100,8 @@ app.get('/getOutdoorData/', function(req, res){
       })
 }); 
 
-app.get('/getWeekForecast/', function(req, res){
-  promiseToString(getWeekForecastData()).then(
+app.get('/getWeekForecast/', function(req, res){ 
+  promiseToString(getWeekForecastData()).then(  
     function(value) {
         //console.log("read Outdoor data from firebase - ");
         //console.log(value);
