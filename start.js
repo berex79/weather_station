@@ -16,9 +16,9 @@ var path = require('path');
 var app = express();
 
 var server = http.createServer(app);
-var timeStamp = Math.floor(Date.now() / 1000);
+var timeStamp = Math.floor(Date.now() /  1000);
 
-var port = process.env.PORT ;//|| 3000;
+var port = process.env.PORT ;//|| 3000;  
 
 const {  promiseToString, writeFirebase, getIndoorData, getOutdoorData } = require('./js/helper');
 const { fetchAndParseWeatherForecast, getCurrentDayWeather, getThreeDayForecast, getTodayForecastData, get3DayForecastData, getWeekForecastData } = require('./js/forecast');
