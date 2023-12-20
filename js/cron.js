@@ -7,8 +7,8 @@ function runCron() {
     console.log('| > Cron Started');
 
     // Schedule a task to run every minute
-    //cron.schedule('0 */4 * * *', async function() { // Runs every 4 hours starting from 00:00
-    cron.schedule('* * * * *', async function() { // Runs every 4 hours starting from 00:00
+    cron.schedule('0 */4 * * *', async function() { // Runs every 4 hours starting from 00:00
+    // cron.schedule('* * * * *', async function() { // Runs every 4 hours starting from 00:00
         try {
             console.log('-----------------------------------------------------------------------------------------------------')
             console.log('| ' + currentTimeStamp() + ' | > FireBase Update | Weather Forecast');
