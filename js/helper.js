@@ -40,7 +40,7 @@ function writeFirebase (data,path) {
     var ref = db.ref(path);
 
     // Update data
-    ref.update(data, function(error) {
+    ref.set(data, function(error) {
     if (error) {
         console.log("Data could not be updated." + error);
     } else {

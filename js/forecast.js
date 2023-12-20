@@ -47,7 +47,9 @@ async function fetchAndParseWeatherForecast() {
       const forecastDataObject = {
         "Week_Forecast": forecastData
       };
-      writeFirebase(forecastDataObject,"/");
+
+      //console.log(forecastDataObject);
+      writeFirebase(forecastDataObject,"forecast/Week");
 
        return forecastData;
    } catch (error) {
@@ -77,13 +79,13 @@ function getCurrentDayWeather(weatherData) {
       if (output) {
           const currentForecastObject = {
               "Current_Forecast": {
-                  "condition": output.condition,
-                  "temp": output.temp,
-                  "feelsLike" : output.feelsLike,
-                  "wind": output.wind
+              "condition": output.condition,
+              "temp": output.temp,
+              "feelsLike" : output.feelsLike,
+              "wind": output.wind
               }
           };
-          writeFirebase(currentForecastObject,"/");
+          writeFirebase(currentForecastObject,"forecast/CurrentDay");
 
           return currentForecastObject.Current_Forecast;
       }
@@ -98,7 +100,7 @@ function getThreeDayForecast(weatherData) {
   const threeDayForecastObject = {
     "3Day_Forecast": firstThreeDays || null
   };
-  writeFirebase(threeDayForecastObject,"/");
+  writeFirebase(threeDayForecastObject,"forecast/3Day");
 
   // Print or process the first three days
   // firstThreeDays.forEach(day => {
@@ -109,15 +111,15 @@ function getThreeDayForecast(weatherData) {
 }
 
 function getWeekForecastData() {
-  return readFirebase("Week_Forecast");
+  return readFirebase("forecast/Week/Week_Forecast");
 }
 
 function getTodayForecastData() {
-  return readFirebase("Current_Forecast");
+  return readFirebase("forecast/Week/Current_Forecast");
 }
 
 function get3DayForecastData() {
-  return readFirebase("3Day_Forecast");
+  return readFirebase("forecast/Week/3Day_Forecast");
 }
 
 module.exports = {  fetchAndParseWeatherForecast : fetchAndParseWeatherForecast,

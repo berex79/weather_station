@@ -23,5 +23,4 @@ function runCron() {
     });
 }
 
-
 module.exports = {  runCron : runCron}

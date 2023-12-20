@@ -29,13 +29,13 @@
             <div id="outdoorData"/>
             <!-- Sensor data will be loaded here -->
             </div>
-            <button class="reset-button2" onclick="resetMinMax2Values()">Reset Min/Max</button>
+            <button class="reset-button2" onclick="resetOutdoorValues()">Reset Min/Max</button>
         </div>
         <div class="data-panel"> 
             <div id="indoorData"/>
             <!-- Sensor data will be loaded here -->
             </div>
-            <button class="reset-button" onclick="resetMinMaxValues()">Reset Min/Max</button>
+            <button class="reset-button" onclick="resetIndoorValues()">Reset Min/Max</button>
         </div>
         
         <div class="data-panel chart-container"> 
@@ -51,7 +51,7 @@
         <script>
             $(document).ready(function() {
                 $.get('/getWeekForecast', function(data) {
-                    let htmlContent = '';
+                    let htmlContent = ''; 
                     data.forEach(item => {
                     htmlContent += `<div class="weather-card">
                                         <h4>${item.date}</h4>

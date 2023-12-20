@@ -33,18 +33,18 @@ function getOutdoorData() {
 function displayOutdoorData(temperature, humidity) {
     var sensorDisplay = '<h1>Outdoor<h1>'
                       + '<h3>Temperature: ' + temperature + '°C</h3>'
-                      + '<h5>Min: ' + localStorage.getItem('minTemp') + '°C | Max: ' + localStorage.getItem('maxTemp') + '°C</h5>'
+                      + '<h5>Min: ' + localStorage.getItem('minTemp2') + '°C | Max: ' + localStorage.getItem('maxTemp2') + '°C</h5>'
                       + '<h3>Humidity: ' + humidity + '%</h3>'
-                      + '<h5>Min: ' + localStorage.getItem('minHum') + '% | Max: ' + localStorage.getItem('maxHum') + '%</h5>';
+                      + '<h5>Min: ' + localStorage.getItem('minHum2') + '% | Max: ' + localStorage.getItem('maxHum2') + '%</h5>';
     document.getElementById('outdoorData').innerHTML = sensorDisplay;
 }
 
 function displayIndoorData(temperature, humidity) {
     var sensorDisplay2 = '<h1>Indoor<h1>'
                       + '<h3>Temperature: ' + temperature + '°C</h3>'
-                      + '<h5>Min: ' + localStorage.getItem('minTemp2') + '°C | Max: ' + localStorage.getItem('maxTemp2') + '°C</h5>'
+                      + '<h5>Min: ' + localStorage.getItem('minTemp') + '°C | Max: ' + localStorage.getItem('maxTemp') + '°C</h5>'
                       + '<h3>Humidity: ' + humidity + '%</h3>'
-                      + '<h5>Min: ' + localStorage.getItem('minHum2') + '% | Max: ' + localStorage.getItem('maxHum2') + '%</h5>';
+                      + '<h5>Min: ' + localStorage.getItem('minHum') + '% | Max: ' + localStorage.getItem('maxHum') + '%</h5>';
     document.getElementById('indoorData').innerHTML = sensorDisplay2;
 }
 
@@ -72,20 +72,20 @@ function updateOutdoorMinMaxValues(temp, hum) {
     localStorage.setItem('minHum2', Math.min(minHum2, hum));
 }
 
-function resetMinMaxValues() {
+function resetIndoorValues() {
     localStorage.removeItem('maxTemp');
     localStorage.removeItem('minTemp');
     localStorage.removeItem('maxHum');
     localStorage.removeItem('minHum');
-    displaySensorData('N/A', 'N/A'); // Update display after reset
+    displayIndoorData('N/A', 'N/A'); // Update display after reset
 }
 
-function resetMinMax2Values() {
+function resetOutdoorValues() {
     localStorage.removeItem('maxTemp2');
     localStorage.removeItem('minTemp2');
     localStorage.removeItem('maxHum2');
     localStorage.removeItem('minHum2');
-    displaySensorData('N/A', 'N/A'); // Update display after reset
+    displayOutdoorData('N/A', 'N/A'); // Update display after reset
 }
 
 
