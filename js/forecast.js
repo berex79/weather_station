@@ -31,7 +31,8 @@ async function fetchAndParseWeatherForecast() {
        const dom = new JSDOM(response.data);
        const forecastElements = dom.window.document.querySelectorAll('#wgt-7-day-forecast-cont .carosel div');
        
-
+       let forecastData = [];
+       
        forecastElements.forEach(element => {
            const date = element.querySelector('.date').textContent.trim();
            const condition = element.querySelector('h3').textContent.trim();
@@ -48,7 +49,7 @@ async function fetchAndParseWeatherForecast() {
         "Week_Forecast": forecastData
       };
 
-      //console.log(forecastDataObject);
+      console.log(forecastDataObject);
       writeFirebase(forecastDataObject,"forecast/Week");
 
        return forecastData;
