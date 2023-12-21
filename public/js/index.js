@@ -31,7 +31,7 @@ function getOutdoorData() {
 }
 
 function displayOutdoorData(temperature, humidity) {
-    var sensorDisplay = '<h1>Outdoor<h1>'
+    var sensorDisplay = '<h1>Għargħur Outdoor<h1>'
                       + '<h3>Temperature: ' + temperature + '°C</h3>'
                       + '<h5>Min: ' + localStorage.getItem('minTemp2') + '°C | Max: ' + localStorage.getItem('maxTemp2') + '°C</h5>'
                       + '<h3>Humidity: ' + humidity + '%</h3>'
