@@ -60,7 +60,7 @@ app.get('/weekforecastAPI/', function(req, res){
 
 app.get('/todaysWeather/', function(req, res){
   promiseToString(fetchAndParseWeatherForecast()).then(
-    function(value) {
+    function(value) { 
         //console.log(value)
         const todaysWeather = getCurrentDayWeather(value);
         //console.log('Today\'s Weather:', todaysWeather); // Log details of today's weather

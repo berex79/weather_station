@@ -34,14 +34,14 @@ async function fetchAndParseWeatherForecast() {
        let forecastData = [];
        
        forecastElements.forEach(element => {
-           const date = element.querySelector('.date').textContent.trim();
+           const date = formatDate(element.querySelector('.date').textContent.trim());
            const condition = element.querySelector('h3').textContent.trim();
            const img = element.querySelector('img').src.trim(); 
            const feelsLike = element.querySelector('.feelslike').textContent.replace('Feels Like', '').trim();
            const temp = element.querySelector('.temp').textContent.trim();
            const wind = element.querySelector('.wind').textContent.trim();
            const uv = element.querySelector('.uv').textContent.replace('UV', '').trim();
-
+           console.log('date ' + date);
            forecastData.push({ date, condition, img, feelsLike, temp, wind, uv });
        });
 
@@ -49,13 +49,27 @@ async function fetchAndParseWeatherForecast() {
         "Week_Forecast": forecastData
       };
 
-      console.log(forecastDataObject);
+      //console.log(forecastDataObject);
       writeFirebase(forecastDataObject,"forecast/Week");
 
        return forecastData;
    } catch (error) {
        console.error('Error fetching or parsing data:', error);
    }
+}
+
+function formatDate(dateString) {
+  // Split the dateString into parts
+  let parts = dateString.split(' ');
+
+  // Check if the day part (second element in the array) starts with a '0'
+  if (parts[1].startsWith('0')) {
+      // Remove the '0'
+      parts[1] = parts[1].substring(1);
+  }
+
+  // Rejoin the parts and return
+  return parts.join(' ');
 }
 
 function getCurrentDayWeather(weatherData) {
